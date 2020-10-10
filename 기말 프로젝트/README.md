@@ -26,6 +26,9 @@
 > 1. 다른 과목에서 배운 기술  
 > 2. 이 과목에서 배울 것으로 기대되는 기술  
 > &nbsp;  - 사운드 삽입  
-> &nbsp;  -  충돌 처리  
+> &nbsp;  - 충돌 처리  
 > 3. 다루지 않는 것 같아서 수업에서 다루어 달라고 요청할 기술  
 > &nbsp;  - 이미지 투명도 처리  
+--------------  
+## 1 차발표  
+<iframe width="640" height="360" src="https://youtu.be/o7kE9Cnu8Jw" frameborder="0" gesture="media" allowfullscreen=""></iframe>

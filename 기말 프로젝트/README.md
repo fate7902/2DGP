@@ -31,4 +31,12 @@
 > &nbsp;  - 이미지 투명도 처리  
 --------------  
 ## 1 차발표  
-[![썸네일](https://user-images.githubusercontent.com/63406107/95656280-359d8a80-0b48-11eb-8d1b-c92decb452d4.PNG)](https://youtu.be/o7kE9Cnu8Jw)
+[![썸네일](https://user-images.githubusercontent.com/63406107/95656280-359d8a80-0b48-11eb-8d1b-c92decb452d4.PNG)](https://youtu.be/o7kE9Cnu8Jw)  
+> 1. 게임 컨셉  
+> ![예시게임](https://user-images.githubusercontent.com/63406107/95656260-0e46bd80-0b48-11eb-82d3-3b71dc0b552c.gif)  
+> 보이는 영상은 개발할 게임의 틀과 같은 형식의 게임 영상입니다.  
+> 영상대로 화면 곳곳에서 발사되는 총알 즉 장애물을 캐릭터를 조작하여 피하면서 최대한 오래 버티는 게임입니다.  
+> 2. 개발 범위  
+> |내용|최소 범위|추가 범위|  
+> |:---|:---:|---|  
+> |캐릭터 컨트롤|360도 원하는 방향이동 가능(키 입력)마우스 입력을 통한 이동|캐릭터가 향하는 방향에 따라 이미지도 같이 움직임

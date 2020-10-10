@@ -31,4 +31,4 @@
 > &nbsp;  - 이미지 투명도 처리  
 --------------  
 ## 1 차발표  
-[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/o7kE9Cnu8Jw)
+[![썸네일](https://user-images.githubusercontent.com/63406107/95656280-359d8a80-0b48-11eb-8d1b-c92decb452d4.PNG)](https://youtu.be/o7kE9Cnu8Jw)

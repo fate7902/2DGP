@@ -31,4 +31,4 @@
 > &nbsp;  - 이미지 투명도 처리  
 --------------  
 ## 1 차발표  
-<iframe width="640" height="360" src="https://youtu.be/o7kE9Cnu8Jw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/watch?v=o7kE9Cnu8Jw&t=2s" frameborder="0" gesture="media" allowfullscreen=""></iframe>

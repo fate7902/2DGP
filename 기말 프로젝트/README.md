@@ -86,9 +86,9 @@
 > 관련 코드는 수업중에 배운 코드를 재사용하였습니다.  
 > ![02](https://user-images.githubusercontent.com/63406107/99977125-9bd42900-2de7-11eb-8698-3879109faaa6.PNG)  
 > player 클래스는 다음과 같은 함수들로 이루어져 있으며  
-> ![03](https://user-images.githubusercontent.com/63406107/99977148-a0004680-2de7-11eb-989a-9edcf0f3d256.PNG)  
-> 그 중 로드이미지 함수로 필요한 이미지를 불러와 분리 저장하며  
 > ![04](https://user-images.githubusercontent.com/63406107/99977166-a42c6400-2de7-11eb-8a3d-d84b7006bcfe.PNG)  
+> 그 중 로드이미지 함수로 필요한 이미지를 불러와 분리 저장하며  
+> ![03](https://user-images.githubusercontent.com/63406107/99977148-a0004680-2de7-11eb-989a-9edcf0f3d256.PNG)  
 > 드로우 함수에서 action의 값에 따라 필요한 이미지를 사용하여   
 > 방향에 맟게 컴포짓 드로우를 사용하였습니다.
 >

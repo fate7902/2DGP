@@ -2,10 +2,16 @@ import gfw
 from pico2d import *
 from gobj import *
 import gobj
+from player import Player
 from background import Background,HorzScrollBackground
 
 def enter():
-    gfw.world.init(['bg1', 'bg2'])
+    gfw.world.init(['bg1', 'bg2', 'player'])
+    global player
+    player = Player()
+    #player.load_all_images()
+    gfw.world.add(gfw.layer.player, player)
+    
     bg1 = Background('backgroung_1740x942.png')    
     gfw.world.add(gfw.layer.bg1, bg1)
 
@@ -18,13 +24,17 @@ def update():
 
 def draw():
     gfw.world.draw()
+    gobj.draw_collision_box()
 
 def handle_event(e):
+    global player
     if e.type == SDL_QUIT:
         gfw.quit()
     elif e.type == SDL_KEYDOWN:
         if e.key == SDLK_ESCAPE:
             gfw.pop()
+
+    player.handle_event(e)
 
 def exit():
     pass

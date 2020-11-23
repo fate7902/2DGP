@@ -2,6 +2,9 @@ from pico2d import *
 
 RES_DIR = 'res'
 
+def res(file):
+    return RES_DIR + '/' + file
+
 class Background:
     def __init__(self):
         self.image = load_image(RES_DIR + '/backgroung_1740x942.png')

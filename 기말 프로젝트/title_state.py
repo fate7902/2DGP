@@ -2,6 +2,8 @@ import gfw
 from pico2d import *
 import game_state
 
+canvas_width = 1740
+canvas_height = 920
 
 def enter():
     global image
@@ -12,7 +14,7 @@ def update():
     pass
 
 def draw():
-    image.draw(870, 460, 1740,920)
+    image.draw(870, 460, canvas_width,canvas_height)
 
 
 def handle_event(e):

@@ -1,16 +1,23 @@
 import gfw
 from pico2d import *
 from gobj import *
+import gobj
+from background import Background,HorzScrollBackground
 
 def enter():
-    global background
-    background = Background()
+    gfw.world.init(['bg1', 'bg2'])
+    bg1 = Background('backgroung_1740x942.png')    
+    gfw.world.add(gfw.layer.bg1, bg1)
+
+    bg2 = HorzScrollBackground('clouds.png',15)
+    bg2.set_scroll(50)
+    gfw.world.add(gfw.layer.bg2, bg2)
 
 def update():
-    pass
+    gfw.world.update()
 
 def draw():
-    background.draw()
+    gfw.world.draw()
 
 def handle_event(e):
     if e.type == SDL_QUIT:

@@ -3,7 +3,7 @@ from pico2d import *
 import game_state
 
 canvas_width = 1740
-canvas_height = 920
+canvas_height = 942
 
 def enter():
     global image

@@ -3,14 +3,17 @@ from pico2d import *
 from gobj import *
 import gobj
 from player import Player
+from bulletzone import Bulletzone
 from background import Background,HorzScrollBackground
 
 def enter():
-    gfw.world.init(['bg1', 'bg2', 'player'])
-    global player
+    gfw.world.init(['bg1', 'bulletzone', 'bg2', 'player'])
+    global player,bulletzone
     player = Player()
-    #player.load_all_images()
     gfw.world.add(gfw.layer.player, player)
+
+    bulletzone = Bulletzone()
+    gfw.world.add(gfw.layer.bulletzone, bulletzone)
     
     bg1 = Background('backgroung_1740x942.png')    
     gfw.world.add(gfw.layer.bg1, bg1)

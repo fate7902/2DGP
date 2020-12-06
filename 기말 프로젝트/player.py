@@ -61,6 +61,10 @@ class Player:
         self.dx, self.dy = 0, 0
         self.life = MAX_LIFE
         self.score = 0
+        self.pattern = 1
+        self.patterncount = 0
+        self.turn = 10
+        #self.pattern = random.randint(1, 4)
         
     def update(self):
         self.time += gfw.delta_time
@@ -118,6 +122,16 @@ class Player:
         hh = image.h // 10
         x,y = self.pos
         return x - hw, y - hh, x + hw, y + hh
+
+    def change_pattern(self):
+        self.pattern = 2
+        #self.pattern = random.randint(1, 4)
+
+    def apply_patterncount(self):
+        self.patterncount += 1
+
+    def apply_turn(self):
+        self.turn += 1
 
     def handle_event(self, e):
         global dx,dy,direction

@@ -64,6 +64,15 @@ class Bluefairy(Fairy):
         self.init(pos, delta, 'blue_fairy', 'Idle', 0)
         self.score = 5
 
+    def get_bb(self):
+        self.action = 'Idle'
+        images = self.images[self.action]        
+        image = images[self.fidx % len(images)]
+        hw = image.w // 2
+        hh = image.h // 2
+        x,y = self.pos
+        return x - hw, y - hh, x + hw, y + hh
+
     def draw(self):
         dx, dy = self.delta
         self.action = 'Idle'
@@ -76,6 +85,15 @@ class Purplefairy(Fairy):
     def __init__(self, pos, delta):
         self.init(pos, delta, 'purple_fairy', 'Idle', 0)
         self.score = 8
+
+    def get_bb(self):
+        self.action = 'Idle'
+        images = self.images[self.action]        
+        image = images[self.fidx % len(images)]
+        hw = image.w // 2
+        hh = image.h // 2
+        x,y = self.pos
+        return x - hw, y - hh, x + hw, y + hh
 
     def draw(self):
         dx, dy = self.delta

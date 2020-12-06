@@ -61,10 +61,10 @@ class Player:
         self.dx, self.dy = 0, 0
         self.life = MAX_LIFE
         self.score = 0
-        self.pattern = 4
         self.patterncount = 0
         self.turn = 10
-        #self.pattern = random.randint(1, 4)
+        self.pattern = 9
+        #self.pattern = random.randint(1, 8)
         
     def update(self):
         self.time += gfw.delta_time
@@ -123,9 +123,10 @@ class Player:
         x,y = self.pos
         return x - hw, y - hh, x + hw, y + hh
 
-    def change_pattern(self):
-        self.pattern = 2
-        #self.pattern = random.randint(1, 4)
+    def change_pattern(self):        
+        self.pattern = random.randint(1, 8)
+        self.turn = 10
+        self.patterncount = 0
 
     def apply_patterncount(self, count):
         self.patterncount += count

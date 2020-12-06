@@ -64,6 +64,14 @@ def generate():
         gfw.world.add(gfw.layer.bullet, m)
         Player.player.apply_patterncount(1)
     elif pattern == 2:
+        dx = 1 * math.cos(math.pi * (patterncount * -3 / 180))
+        dy = 1 * math.sin(math.pi * (patterncount * -3 / 180))
+        dx *= speed
+        dy *= speed
+        m = Bullet((x, y), (dx, dy))
+        gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(1)
+    elif pattern == 3:
         for i in range(1,5):
             dx = 1 * math.cos(math.pi * (patterncount * 3 / (180 / i)))
             dy = 1 * math.sin(math.pi * (patterncount * 3 / (180 / i)))
@@ -72,7 +80,16 @@ def generate():
             m = Bullet((x, y), (dx, dy))
             gfw.world.add(gfw.layer.bullet, m)
         Player.player.apply_patterncount(4)
-    elif pattern == 3:
+    elif pattern == 4:
+        for i in range(1,5):
+            dx = 1 * math.cos(math.pi * (patterncount * -3 / (180 / i)))
+            dy = 1 * math.sin(math.pi * (patterncount * -3 / (180 / i)))
+            dx *= speed
+            dy *= speed
+            m = Bullet((x, y), (dx, dy))
+            gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(4)
+    elif pattern == 5:
         for i in range(1,5):
             dx = 1 * math.cos(math.pi * ((patterncount * 3 + (90 * (i - 1))) / 180))
             dy = 1 * math.sin(math.pi * ((patterncount * 3 + (90 * (i - 1))) / 180))
@@ -81,7 +98,16 @@ def generate():
             m = Bullet((x, y), (dx, dy))
             gfw.world.add(gfw.layer.bullet, m)
         Player.player.apply_patterncount(4)
-    elif pattern == 4:
+    elif pattern == 6:
+        for i in range(1,5):
+            dx = 1 * math.cos(math.pi * ((patterncount * -3 + (-90 * (i - 1))) / 180))
+            dy = 1 * math.sin(math.pi * ((patterncount * -3 + (-90 * (i - 1))) / 180))
+            dx *= speed
+            dy *= speed
+            m = Bullet((x, y), (dx, dy))
+            gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(4)
+    elif pattern == 7:
         px, py = Player.player.pos
         ax = get_canvas_width() // 2 - px
         ay = get_canvas_height() // 2 - py
@@ -93,6 +119,33 @@ def generate():
         m = Bullet((x, y), (dx, dy))
         gfw.world.add(gfw.layer.bullet, m)
         Player.player.apply_patterncount(1)
+    elif pattern == 8:
+        randomset = random.randint(1, 360)
+        dx = 1 * math.cos(math.pi * (randomset / 180))
+        dy = 1 * math.sin(math.pi * (randomset / 180))
+        dx *= speed
+        dy *= speed
+        m = Bullet((x, y), (dx, dy))
+        gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(1)
+    elif pattern == 9:
+        for i in range(1,5):
+            randomset = random.randint(1, 360)
+            dx = 1 * math.cos(math.pi * (randomset / 180))
+            dy = 1 * math.sin(math.pi * (randomset / 180))
+            dx *= speed
+            dy *= speed
+            m = Bullet((x, y), (dx, dy))
+            gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(4)
+
+    if pattern == 3 or pattern == 4 or pattern == 5 or pattern == 6 or pattern == 9:
+        if Player.player.patterncount >= 720:
+            Player.player.change_pattern()
+    else:
+        if Player.player.patterncount >= 240:
+            Player.player.change_pattern()
+    
 
 def generate_bonus():
     x, y, dx, dy = get_border_coords()

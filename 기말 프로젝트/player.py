@@ -61,7 +61,7 @@ class Player:
         self.dx, self.dy = 0, 0
         self.life = MAX_LIFE
         self.score = 0
-        self.pattern = 1
+        self.pattern = 4
         self.patterncount = 0
         self.turn = 10
         #self.pattern = random.randint(1, 4)
@@ -127,8 +127,8 @@ class Player:
         self.pattern = 2
         #self.pattern = random.randint(1, 4)
 
-    def apply_patterncount(self):
-        self.patterncount += 1
+    def apply_patterncount(self, count):
+        self.patterncount += count
 
     def apply_turn(self):
         self.turn += 1

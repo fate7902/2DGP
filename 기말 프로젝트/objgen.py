@@ -60,10 +60,39 @@ def generate():
         dy = 1 * math.sin(math.pi * (patterncount * 3 / 180))
         dx *= speed
         dy *= speed
-        Player.player.apply_patterncount()
-
-    m = Bullet((x, y), (dx, dy))
-    gfw.world.add(gfw.layer.bullet, m)
+        m = Bullet((x, y), (dx, dy))
+        gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(1)
+    elif pattern == 2:
+        for i in range(1,5):
+            dx = 1 * math.cos(math.pi * (patterncount * 3 / (180 / i)))
+            dy = 1 * math.sin(math.pi * (patterncount * 3 / (180 / i)))
+            dx *= speed
+            dy *= speed
+            m = Bullet((x, y), (dx, dy))
+            gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(4)
+    elif pattern == 3:
+        for i in range(1,5):
+            dx = 1 * math.cos(math.pi * ((patterncount * 3 + (90 * (i - 1))) / 180))
+            dy = 1 * math.sin(math.pi * ((patterncount * 3 + (90 * (i - 1))) / 180))
+            dx *= speed
+            dy *= speed
+            m = Bullet((x, y), (dx, dy))
+            gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(4)
+    elif pattern == 4:
+        px, py = Player.player.pos
+        ax = get_canvas_width() // 2 - px
+        ay = get_canvas_height() // 2 - py
+        angle = math.atan2(ay,ax) * 180 / math.pi + 180
+        dx = 1 * math.cos(math.pi * (angle / 180))
+        dy = 1 * math.sin(math.pi * (angle / 180))
+        dx *= speed
+        dy *= speed
+        m = Bullet((x, y), (dx, dy))
+        gfw.world.add(gfw.layer.bullet, m)
+        Player.player.apply_patterncount(1)
 
 def generate_bonus():
     x, y, dx, dy = get_border_coords()

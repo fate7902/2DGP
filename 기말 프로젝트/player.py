@@ -60,12 +60,12 @@ class Player:
         self.pos = get_canvas_width() // 2, get_canvas_height() // 2
         self.dx, self.dy = 0, 0
         self.life = MAX_LIFE
-        #self.score = 0
+        self.score = 0
         
     def update(self):
         self.time += gfw.delta_time
         self.fidx = round(self.time * FPS)
-        #self.score += gfw.delta_time
+        self.score += gfw.delta_time
         x,y = self.pos
         x += self.dx * MOVE_PPS * gfw.delta_time
         y += self.dy * MOVE_PPS * gfw.delta_time

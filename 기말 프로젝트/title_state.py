@@ -7,7 +7,7 @@ canvas_height = 942
 
 def enter():
     global image
-    image = load_image('res/purple_fairy_01_65x65.png')
+    image = load_image('res/purple_fairy_1.png')
 
 
 def update():

@@ -1,13 +1,17 @@
 import gfw
 from pico2d import *
-from gobj import *
 import gobj
 from player import Player
+from fairy import Fairy
+import objgen
 from bulletzone import Bulletzone
 from background import Background,HorzScrollBackground
 
+canvas_width = 1740
+canvas_height = 942
+
 def enter():
-    gfw.world.init(['bg1', 'bulletzone', 'bg2', 'player'])
+    gfw.world.init(['bg1', 'bulletzone', 'bonus', 'bg2', 'player'])
     global player,bulletzone
     player = Player()
     gfw.world.add(gfw.layer.player, player)
@@ -24,6 +28,7 @@ def enter():
 
 def update():
     gfw.world.update()
+    objgen.update()
 
 def draw():
     gfw.world.draw()

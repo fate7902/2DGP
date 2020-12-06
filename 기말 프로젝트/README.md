@@ -63,3 +63,33 @@
 > 시시각각으로 변하며 좌상단의체력이 0이되면 조건에 따라 랭킹등록 화면 또는 타이틀 화면으로 전환됩니다.  
 >
 > </details>
+--------------  
+## 2 차발표  
+> [![썸네일](https://user-images.githubusercontent.com/63406107/99977408-f2d9fe00-2de7-11eb-9fed-34ae618f761d.PNG)](https://youtu.be/NyFfyiQ-ifc)  
+> <details markdown="1">
+> <summary>상세 내용 확인</summary>  
+> 
+> ### 1. 주차별 진행 상황  
+> ![주차별 계획](https://user-images.githubusercontent.com/63406107/95656556-228bba00-0b4a-11eb-939c-40154b854e6d.PNG)  
+> 1주 리소스 수집과 2주 캐릭터 생성 및 키입력은 완료하였으며  
+> 3주 캐릭터 마우스 입력과  
+> 4 ~ 5주 장애물 패턴은 아직 미구현 상태입니다.  
+> 6~ 7주 랭킹 구현과 사운드 및 밸런스는 대부분 구현후 아직 미적용 한 상태입니다.  
+> ### 2. 커밋 횟수 관련  
+> ![커밋 수](https://user-images.githubusercontent.com/63406107/99977085-91b22a80-2de7-11eb-8e23-a3e5aca60304.PNG)  
+> 3주차에 3회 5주차에 5회 커밋 하였습니다.  
+> ### 3. 코드 간단 소개  
+> ![01](https://user-images.githubusercontent.com/63406107/99977104-9840a200-2de7-11eb-8501-0af42d46c7ad.PNG)  
+> game_state에 등장하는 game object로는 현재 bg1, bg2, player만 있는 상태입니다.  
+> bg1는 game_state의 배경이며  
+> bg2는 game_state의 배경으로 흐르는 구름입니다.  
+> 관련 코드는 수업중에 배운 코드를 재사용하였습니다.  
+> ![02](https://user-images.githubusercontent.com/63406107/99977125-9bd42900-2de7-11eb-8698-3879109faaa6.PNG)  
+> player 클래스는 다음과 같은 함수들로 이루어져 있으며  
+> ![04](https://user-images.githubusercontent.com/63406107/99977166-a42c6400-2de7-11eb-8a3d-d84b7006bcfe.PNG)  
+> 그 중 로드이미지 함수로 필요한 이미지를 불러와 분리 저장하며  
+> ![03](https://user-images.githubusercontent.com/63406107/99977148-a0004680-2de7-11eb-989a-9edcf0f3d256.PNG)  
+> 드로우 함수에서 action의 값에 따라 필요한 이미지를 사용하여   
+> 방향에 맟게 컴포짓 드로우를 사용하였습니다.
+>
+> </details>

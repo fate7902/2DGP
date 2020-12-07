@@ -5,7 +5,7 @@ import gfw
 
 FILENAME = 'data.pickle'
 scores = []
-MAX_SCORE_COUNT = 5
+MAX_SCORE_COUNT = 10
 last_rank = -1
 
 class Entry:
@@ -53,12 +53,12 @@ def add(score):
 def draw():
     global font, last_rank
     no = 1
-    y = 170
+    y = 320
     for e in scores:
         str = "{:2d} {:7.1f}".format(no, e.score)
-        color = (255, 255, 128) if no == last_rank else (223, 255, 223)
-        font.draw(70, y, str, color)
-        font.draw(320, y, time.asctime(time.localtime(e.time)), color)
+        color = (255, 0, 0) if no == last_rank else (0, 0, 255)
+        font.draw(520, y, str, color)
+        font.draw(770, y, time.asctime(time.localtime(e.time)), color)
         y -= 30
         no += 1
 

@@ -19,7 +19,7 @@ class Player:
         self.time = 0
         self.direction = 1
         
-        #self.font = gfw.font.load('res/ConsolaMalgun.ttf', 35)        
+        self.font = gfw.font.load('res/ConsolaMalgun.ttf', 35)        
         #self.radius = self.image.h // 2        
         #self.heart_red = gfw.image.load('res/heart_red.png')
         #self.heart_white = gfw.image.load('res/heart_white.png')
@@ -86,6 +86,8 @@ class Player:
         image = images[self.fidx % len(images)]
         flip = 'h' if self.direction != 1 else ''
         image.composite_draw(0, flip, *self.pos, image.w // 3, image.h // 3)
+        pos = 30, get_canvas_height() - 30
+        self.font.draw(*pos, 'Score: %.1f' % self.score, SCORE_TEXT_COLOR)
 
     #def draw(self):
         #self.image.draw(*self.pos)

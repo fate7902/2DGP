@@ -15,6 +15,8 @@ STATE_IN_GAME, STATE_GAME_OVER = range(2)
 
 def enter():
     gfw.world.init(['bg1', 'bulletzone', 'bullet', 'bonus', 'bg2', 'player', 'ui'])
+    objgen.init()
+    
     global player,bulletzone
     player = Player()
     gfw.world.add(gfw.layer.player, player)
@@ -28,6 +30,8 @@ def enter():
     bg2 = HorzScrollBackground('clouds.png',15)
     bg2.set_scroll(50)
     gfw.world.add(gfw.layer.bg2, bg2)
+
+    highscore.load()
 
     global music_bg
     music_bg = load_music('res/bgm_fullMoonParty.mp3')
@@ -48,7 +52,7 @@ def start_game():
     player.reset()
     gfw.world.clear_at(gfw.layer.bullet)
     gfw.world.clear_at(gfw.layer.bonus)
-    #gfw.world.remove(highscore)
+    gfw.world.remove(highscore)
 
     music_bg.repeat_play()
 
@@ -56,7 +60,7 @@ def end_game():
     global game_state
     game_state = STATE_GAME_OVER
     music_bg.stop()
-    #highscore.add(player.score)
+    highscore.add(player.score)
     gfw.world.add(gfw.layer.ui, highscore)
 
 def update():
@@ -84,6 +88,10 @@ def update():
 def draw():
     gfw.world.draw()
     gobj.draw_collision_box()
+    if game_state == STATE_GAME_OVER:
+        x = get_canvas_width() // 2
+        y = get_canvas_height() * 2 // 3
+        game_over_image.draw(x, y, get_canvas_width() // 2, get_canvas_height() // 2)
 
 def collides_distance(a, b):
     left_a, bottom_a, right_a, top_a = a.get_bb()
@@ -103,6 +111,9 @@ def handle_event(e):
     elif e.type == SDL_KEYDOWN:
         if e.key == SDLK_ESCAPE:
             gfw.pop()
+        elif e.key == SDLK_RETURN:
+            if game_state == STATE_GAME_OVER:
+                start_game()
 
     player.handle_event(e)
 

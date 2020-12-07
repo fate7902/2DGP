@@ -30,6 +30,7 @@
 > 3. 다루지 않는 것 같아서 수업에서 다루어 달라고 요청할 기술  
 > &nbsp;  - 이미지 투명도 처리  
 --------------  
+>  각 발표별 썸네일 클릭시 영상으로 자동 링크됩니다.  
 ## 1 차발표  
 > [![썸네일](https://user-images.githubusercontent.com/63406107/95656280-359d8a80-0b48-11eb-8d1b-c92decb452d4.PNG)](https://youtu.be/o7kE9Cnu8Jw)  
 > <details markdown="1">

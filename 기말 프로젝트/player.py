@@ -57,14 +57,13 @@ class Player:
         return images
     
     def reset(self):
-        self.pos = get_canvas_width() // 2, get_canvas_height() // 2
+        self.pos = get_canvas_width() // 4, get_canvas_height() // 4
         self.dx, self.dy = 0, 0
         self.life = MAX_LIFE
         self.score = 0
         self.patterncount = 0
         self.turn = 10
-        self.pattern = 9
-        #self.pattern = random.randint(1, 8)
+        self.pattern = random.randint(1, 9)
         
     def update(self):
         self.time += gfw.delta_time
@@ -124,7 +123,7 @@ class Player:
         return x - hw, y - hh, x + hw, y + hh
 
     def change_pattern(self):        
-        self.pattern = random.randint(1, 8)
+        self.pattern = random.randint(1, 9)
         self.turn = 10
         self.patterncount = 0
 

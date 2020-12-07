@@ -127,8 +127,11 @@ class Player:
         x,y = self.pos
         return x - hw, y - hh, x + hw, y + hh
 
-    def change_pattern(self):        
-        self.pattern = random.randint(1, 9)
+    def change_pattern(self):
+        temp = random.randint(1, 9)
+        while self.pattern == temp:
+            temp = random.randint(1, 9)
+        self.pattern = temp
         self.turn = 10
         self.patterncount = 0
 

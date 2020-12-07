@@ -100,7 +100,7 @@ def update():
 
 def draw():
     gfw.world.draw()
-    gobj.draw_collision_box()
+    #gobj.draw_collision_box()
     if game_state == STATE_GAME_OVER:
         x = get_canvas_width() // 2
         y = get_canvas_height() * 2 // 3

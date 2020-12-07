@@ -11,7 +11,7 @@ from background import Background,HorzScrollBackground
 canvas_width = 1740
 canvas_height = 942
 
-STATE_IN_GAME, STATE_GAME_OVER = range(2)
+STATE_IN_GAME, STATE_PAUSED, STATE_GAME_OVER = range(3)
 
 def enter():
     gfw.world.init(['bg1', 'bulletzone', 'bullet', 'bonus', 'bg2', 'player', 'ui'])
@@ -33,9 +33,10 @@ def enter():
 
     highscore.load()
 
-    global music_bg
+    global music_bg, sound_bonus, sound_bullet
     music_bg = load_music('res/bgm_fullMoonParty.mp3')
-    music_bg.repeat_play()
+    sound_bonus = load_music('res/bgm_bonus.mp3')
+    sound_bullet = load_music('res/bgm_bullet.mp3')
 
     global game_state
     game_state = STATE_IN_GAME
@@ -44,6 +45,17 @@ def enter():
     game_over_image = gfw.image.load('res/game_over.png')
 
     start_game()
+
+def paused_game():   
+    global game_state
+    game_state = STATE_PAUSED
+    music_bg.pause()
+    player.score = max(0, player.score - 50)
+
+def resume_game():
+     global game_state
+     game_state = STATE_IN_GAME
+     music_bg.resume()
 
 def start_game():
     global game_state
@@ -74,16 +86,17 @@ def update():
     for o in gfw.world.objects_at(gfw.layer.bullet):
         if collides_distance(o, player):
             gfw.world.remove(o)
-            #sound_explosion.play()
+            sound_bullet.play()
             dead = player.decreate_life()
             if dead:
-                end_game()                
+                end_game()    
 
     for o in gfw.world.objects_at(gfw.layer.bonus):
         if collides_distance(o, player):
             gfw.world.remove(o)
-            #sound_item.play()
+            sound_bonus.play()
             player.apply_item(o)
+        
 
 def draw():
     gfw.world.draw()
@@ -114,6 +127,11 @@ def handle_event(e):
         elif e.key == SDLK_RETURN:
             if game_state == STATE_GAME_OVER:
                 start_game()
+            elif game_state == STATE_PAUSED:
+                resume_game()
+        elif e.key == SDLK_p:
+            if game_state == STATE_IN_GAME:
+                paused_game()
 
     player.handle_event(e)
 

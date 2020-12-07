@@ -155,11 +155,24 @@ def generate_bonus():
 
 def update():
     turn = Player.player.turn
-    if turn % 10 == 0:
+    score = Player.player.score
+    pattern = Player.player.pattern
+    max_temp = Player.player.score // 100
+
+    if pattern == 1 or pattern == 2 or pattern == 8:
+        max_temp += 3
+    
+    if max_temp > 9:
+        max_temp = 9
+        
+    temp = 10 - max_temp
+    
+    if turn % temp == 0:
         generate()
+        
     Player.player.apply_turn()
     
     score = Player.player.score
-    fairy_count = MAX_FAIRY_COUNT + score // 50
+    fairy_count = MAX_FAIRY_COUNT + score // 150
     if gfw.world.count_at(gfw.layer.bonus) < fairy_count:
         generate_bonus()  

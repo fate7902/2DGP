@@ -20,16 +20,9 @@ class Player:
         self.direction = 1
         
         self.font = gfw.font.load('res/ConsolaMalgun.ttf', 35)        
-        #self.radius = self.image.h // 2        
-        #self.heart_red = gfw.image.load('res/heart_red.png')
-        #self.heart_white = gfw.image.load('res/heart_white.png')
+        self.heart_red = gfw.image.load('res/heart_red.png')
+        self.heart_white = gfw.image.load('res/heart_white.png')
         self.reset()
-        
-        #global BOUNDARY_LEFT, BOUNDARY_RIGHT, BOUNDARY_DOWN, BOUNDARY_UP
-        #BOUNDARY_LEFT = self.image.w // 2
-        #BOUNDARY_DOWN = self.image.h // 2
-        #BOUNDARY_RIGHT = get_canvas_width() - BOUNDARY_LEFT
-        #BOUNDARY_UP = get_canvas_height() - BOUNDARY_DOWN
 
         Player.player = self
 
@@ -72,8 +65,23 @@ class Player:
         x,y = self.pos
         x += self.dx * MOVE_PPS * gfw.delta_time
         y += self.dy * MOVE_PPS * gfw.delta_time
-        #x = clamp(BOUNDARY_LEFT, x, BOUNDARY_RIGHT)
-        #y = clamp(BOUNDARY_DOWN, y, BOUNDARY_UP)
+
+        if self.dx == 0 and self.dy == 0:
+            self.action = 'Idle'
+            images = self.idleimages[self.action]
+        else:
+            self.action = 'Walk'
+            images = self.walkimages[self.action]        
+        image = images[self.fidx % len(images)]
+
+        global BOUNDARY_LEFT, BOUNDARY_RIGHT, BOUNDARY_DOWN, BOUNDARY_UP
+        BOUNDARY_LEFT = image.w // 9
+        BOUNDARY_DOWN = image.h // 10
+        BOUNDARY_RIGHT = get_canvas_width() - BOUNDARY_LEFT
+        BOUNDARY_UP = get_canvas_height() - BOUNDARY_DOWN
+        
+        x = clamp(BOUNDARY_LEFT, x, BOUNDARY_RIGHT)
+        y = clamp(BOUNDARY_DOWN, y, BOUNDARY_UP)
         self.pos = x, y
 
     def draw(self):
@@ -88,17 +96,12 @@ class Player:
         image.composite_draw(0, flip, *self.pos, image.w // 3, image.h // 3)
         pos = 30, get_canvas_height() - 30
         self.font.draw(*pos, 'Score: %.1f' % self.score, SCORE_TEXT_COLOR)
-
-    #def draw(self):
-        #self.image.draw(*self.pos)
-        #x = get_canvas_width() - 30
-        #y = get_canvas_height() - 30
-        #for i in range(MAX_LIFE):
-            #heart = self.heart_red if i < self.life else self.heart_white
-            #heart.draw(x, y)
-            #x -= heart.w
-        #pos = 30, get_canvas_height() - 30
-        #self.font.draw(*pos, 'Score: %.1f' % self.score, SCORE_TEXT_COLOR)
+        x = get_canvas_width() - 30
+        y = get_canvas_height() - 30
+        for i in range(MAX_LIFE):
+            heart = self.heart_red if i < self.life else self.heart_white
+            heart.draw(x, y)
+            x -= heart.w
 
     def apply_item(self, item):
         if self.life == MAX_LIFE:
